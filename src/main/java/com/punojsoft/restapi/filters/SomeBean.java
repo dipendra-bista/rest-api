@@ -1,17 +1,20 @@
 package com.punojsoft.restapi.filters;
 
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
-import java.util.Map;
+/**
+ * @JsonPropertyOrder aloows to specify the order
 
+ * when serializing
+ */
+@JsonPropertyOrder({"name", "salary", "phome"})
 public class SomeBean {
     private String name;
     private String phone;
     //JsonIgnore indicates that the annotated method or field is to be ignored
     @JsonIgnore
     private String salary;
-    private Map<String, String> properties;
 
 
     //generating constructor
@@ -46,12 +49,4 @@ public class SomeBean {
         this.salary = salary;
     }
 
-    public Map<String, String> getProperties() {
-        return properties;
-    }
-
-    @JsonAnyGetter
-    public void setProperties(Map<String, String> properties) {
-        this.properties = properties;
-    }
 }
