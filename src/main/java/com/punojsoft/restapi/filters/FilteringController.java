@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class FilteringController {
     @GetMapping
     public SomeBean someBean() {
-        return new SomeBean("dipendra bista", "9814320455", "50000");
+        return new SomeBean("dipendra bista", "", "50000");
     }
 
     @GetMapping("/anygetter")
@@ -35,7 +35,7 @@ public class FilteringController {
         bean.setPhone("9814320455");
         bean.setSalary("5000");
         String result = mapper.writeValueAsString(bean);
-        
+
         System.out.println("result : " + result);
     }
 }

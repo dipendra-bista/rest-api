@@ -1,6 +1,7 @@
 package com.punojsoft.restapi.filters;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonRootName;
 
@@ -11,6 +12,16 @@ import com.fasterxml.jackson.annotation.JsonRootName;
  */
 @JsonPropertyOrder({"name", "salary", "phome"})
 @JsonRootName(value = "user")
+
+/**
+ * excluding null ,empty,default,abscent and custom calues while serializing
+ */
+//@JsonInclude(JsonInclude.Include.NON_NULL)
+//@JsonInclude(JsonInclude.Include.ALWAYS)
+//@JsonInclude(JsonInclude.Include.NON_DEFAULT)
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
+//@JsonInclude(JsonInclude.Include.NON_ABSENT)
+//@JsonInclude(JsonInclude.Include.USE_DEFAULTS)
 public class SomeBean {
     private String name;
     private String phone;
