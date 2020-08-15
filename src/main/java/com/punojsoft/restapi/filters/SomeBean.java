@@ -2,13 +2,15 @@ package com.punojsoft.restapi.filters;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonRootName;
 
 /**
  * @JsonPropertyOrder aloows to specify the order
-
+ * <p>
  * when serializing
  */
 @JsonPropertyOrder({"name", "salary", "phome"})
+@JsonRootName(value = "user")
 public class SomeBean {
     private String name;
     private String phone;
@@ -16,6 +18,8 @@ public class SomeBean {
     @JsonIgnore
     private String salary;
 
+    public SomeBean() {
+    }
 
     //generating constructor
     public SomeBean(String name, String phone, String salary) {
