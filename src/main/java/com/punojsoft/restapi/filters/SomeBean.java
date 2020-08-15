@@ -1,6 +1,9 @@
 package com.punojsoft.restapi.filters;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import java.util.Map;
 
 public class SomeBean {
     private String name;
@@ -8,6 +11,8 @@ public class SomeBean {
     //JsonIgnore indicates that the annotated method or field is to be ignored
     @JsonIgnore
     private String salary;
+    private Map<String, String> properties;
+
 
     //generating constructor
     public SomeBean(String name, String phone, String salary) {
@@ -40,4 +45,13 @@ public class SomeBean {
     public void setSalary(String salary) {
         this.salary = salary;
     }
-}  
+
+    public Map<String, String> getProperties() {
+        return properties;
+    }
+
+    @JsonAnyGetter
+    public void setProperties(Map<String, String> properties) {
+        this.properties = properties;
+    }
+}
